@@ -7,6 +7,7 @@ from sklearn.metrics import accuracy_score
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+from sklearn.metrics import classification_report
 
 iris = load_iris()
 
@@ -66,3 +67,8 @@ disp = ConfusionMatrixDisplay(confusion_matrix=cm,display_labels=iris.target_nam
 disp.plot(cmap=plt.cm.Blues)
 plt.title("Karar Ağacı - Confusion Matrix")
 plt.show()
+
+report = classification_report(y_test,y_pred,target_names=iris.target_names)
+
+print("Karar Agaci - Siniflandirma Raporu:\n")
+print(report)
